@@ -1,9 +1,13 @@
-function App() {
-  return (
-    <div>
+import Actor from './components/actors'
 
-    </div>
-  );
+function App() {
+    return (
+        <div>
+            <Actor
+                name={'vova'}
+                surname={'dub'}/>
+        </div>
+    );
 }
 
 export default App;
