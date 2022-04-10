@@ -1,0 +1,8 @@
+.users{
+    width: 400px;
+    border: teal solid 3px;
+}
+.wrap{
+    display: flex;
+    flex-direction: row;
+}
