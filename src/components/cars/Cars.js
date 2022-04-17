@@ -11,7 +11,7 @@ export const Cars = ({newCar}) => {
     },[])
     useEffect(()=>{
         if(newCar){
-            setCars(...cars,newCar)
+            setCars([...cars,newCar])
         }
     },[newCar])
     return (
