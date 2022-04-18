@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react'
 import {CarValidators} from "../../validators";
 import {carsService} from '../../services';
 
-export const CarForm = ({setNewCar}) => {
+export const CarForm = ({setNewCar, carForUpdate}) => {
 
     //const [formError, setFormError] = useState({})
 
@@ -20,6 +20,16 @@ export const CarForm = ({setNewCar}) => {
         resolver: joiResolver(CarValidators),
         mode: "onTouched"
     });
+
+    useEffect(()=>{
+if (carForUpdate){
+    const {model, price, year}= carForUpdate
+    setValue('model', model);
+    setValue('price', price);
+    setValue('year', year);
+
+}
+    },[carForUpdate])
 
     const submit = async (car) => {
         try {
@@ -37,15 +47,15 @@ export const CarForm = ({setNewCar}) => {
         <form onSubmit={handleSubmit(submit)}>
             <div><label>Model:<input type="text"{...register("model")}/></label></div>
             {/*{formError.model && <span>{formError.model[0]}</span>}*/}
-            {errors.model && <span>{errors.model.massage}</span>}
+            {errors.model && <span>{errors.model.message}</span>}
 
             <div><label>Price:<input type="text"{...register("price", {valueAsNumber: true})}/></label></div>
             {/*{formError.price && <span>{formError.price[0]}</span>}*/}
-            {errors.price && <span>{errors.price.massage}</span>}
+            {errors.price && <span>{errors.price.message}</span>}
 
                 <div><label>Year:<input type="text"{...register("year", {valueAsNumber: true})}/></label></div>
             {/*{formError.year && <span>{formError.year[0]}</span>}*/}
-            {errors.year && <span>{errors.year.massage}</span>}
+            {errors.year && <span>{errors.year.message}</span>}
 
                 <button>Save</button>
                 </form>
