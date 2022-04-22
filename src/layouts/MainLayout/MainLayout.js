@@ -2,7 +2,7 @@ import css from './MainLayout.modules.css'
 import {Outlet, Link, NavLink, useNavigate} from "react-router-dom";
 
 export const MainLayout = () => {
-    const navigate = useNavigate
+    const navigate = useNavigate()
     return (
         <div>
             <div className={'header'}>
