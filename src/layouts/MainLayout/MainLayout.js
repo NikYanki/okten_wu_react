@@ -12,10 +12,10 @@ export const MainLayout = () => {
                 <NavLink to="/about">About</NavLink>
             </div>
             <hr/>
-            <div>
-                <button onClick={()=>navigate(-1)}>prev</button>
-                <button onClick={()=>navigate(1)}>next</button>
-            </div>
+            {/*<div>*/}
+            {/*    <button onClick={()=>navigate(-1)}>prev</button>*/}
+            {/*    <button onClick={()=>navigate(1)}>next</button>*/}
+            {/*</div>*/}
             <Outlet/>
         </div>
     );
